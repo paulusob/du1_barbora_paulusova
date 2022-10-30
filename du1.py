@@ -64,14 +64,20 @@ home()
 pendown()
 for l in range (4):
     print("Je na tahu hráč 1")
-    x=float(input("Zadejte x souřadnici (1-3): "))
+    x=float(input("Zadejte x souřadnici v intervalu (1-3): "))
+    while x>3 or x<1:
+        print("x musí být v intervalu (1,3)")
+        x=float(input("Zadejte znovu x souřadnici v intervalu (1-3): "))
     if x==1:
         x=0
     elif x==2:
         x=100
     else:
         x=200
-    y=float(input("Zadejte y souřadnici: "))
+    y=float(input("Zadejte y souřadnici (1-3): "))
+    while y>3 or y<1:
+        print("y musí být v intervalu (1,3)")
+        y=float(input("Zadejte znovu y souřadnici v intervalu (1-3): "))
     if y==1:
         y=0
     elif y==2:
@@ -86,14 +92,20 @@ for l in range (4):
     forward(50)
     left(180)
     print("Je na tahu hráč 2")
-    x=float(input("Zadejte x souřadnici: "))
+    x=float(input("Zadejte x souřadnici (1-3): "))
+    while x>3 or x<1:
+        print("x musí být v intervalu (1,3)")
+        x=float(input("Zadejte znovu x souřadnici v intervalu (1-3): "))
     if x==1:
         x=0
     elif x==2:
         x=100
     else:
         x=200
-    y=float(input("Zadejte y souřadnici: "))
+    y=float(input("Zadejte y souřadnici (1-3): "))
+    while y>3 or y<1:
+        print("y musí být v intervalu (1,3)")
+        y=float(input("Zadejte znovu y souřadnici v intervalu (1-3): "))
     if y==1:
         y=0
     elif y==2:
@@ -112,20 +124,26 @@ for l in range (4):
     forward(100)
     left(180)
 print("Je na tahu hráč 1")
-x=float(input("Zadejte x souřadnici: "))
+x=float(input("Zadejte x souřadnici (1-3): "))
+while x>3 or x<1:
+    print("x musí být v intervalu (1,3)")
+    x=float(input("Zadejte znovu x souřadnici v intervalu (1-3): "))
 if x==1:
-        x=0
-    elif x==2:
-        x=100
-    else:
-        x=200
-y=float(input("Zadejte y souřadnici: "))
+    x=0
+elif x==2:
+    x=100
+else:
+    x=200
+y=float(input("Zadejte y souřadnici (1-3): "))
+while y>3 or y<1:
+    print("y musí být v intervalu (1,3)")
+    y=float(input("Zadejte znovu y souřadnici v intervalu (1-3): "))
 if y==1:
-        y=0
-    elif y==2:
-        y=100
-    else:
-        y=200
+    y=0
+elif y==2:
+    y=100
+else:
+    y=200
 setx(x)
 sety(y)
 forward (50)
