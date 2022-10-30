@@ -1,4 +1,4 @@
-from turtle import forward, exitonclick, right, left, speed, setx, sety, setpos, circle
+from turtle import forward, exitonclick, right, left, speed, setx, sety, setpos, circle, write, penup, pendown, home
 print("Vítejte ve hře piškvorky")
 print("Hráč 1 má symbol kolečka, hráč 2 má symbol křížku, Na vyzvání zadejte nejdříve souřadnici x, posléze souřadnici y vašeho tahu")
 
@@ -7,11 +7,9 @@ print("Hráč 1 má symbol kolečka, hráč 2 má symbol křížku, Na vyzvání
 a=3
 b=3
 strana=100
-speed(9)
+speed(0)
 for k in range(b):
-    # Nakreslí řádek
     for j in range(a):
-         # Nakreslí čtverec
         for i in range(4):
             forward(strana)
             left(90)
@@ -21,6 +19,49 @@ for k in range(b):
     right(90)
     forward(strana)
     right(90)
+penup()
+setx(310)
+sety(-5)
+pendown()
+write ("x",move=False, align='left',font=('Arial',8,'normal'))
+penup()
+setx(0)
+sety(310)
+pendown()
+write ("y",move=False, align='left',font=('Arial',8,'normal'))
+penup()
+setx(45)
+sety(-20)
+pendown()
+write ("1",move=False, align='left',font=('Arial',8,'normal'))
+penup()
+setx(145)
+sety(-20)
+pendown()
+write ("2",move=False, align='left',font=('Arial',8,'normal'))
+penup()
+setx(245)
+sety(-20)
+pendown()
+write ("3",move=False, align='left',font=('Arial',8,'normal'))
+penup()
+setx(-20)
+sety(45)
+pendown()
+write ("1",move=False, align='left',font=('Arial',8,'normal'))
+penup()
+setx(-20)
+sety(145)
+pendown()
+write ("2",move=False, align='left',font=('Arial',8,'normal'))
+penup()
+setx(-20)
+sety(245)
+pendown()
+write ("3",move=False, align='left',font=('Arial',8,'normal'))
+penup()
+home()
+pendown()
 for l in range (4):
     print("Je na tahu hráč 1")
     x=float(input("Zadejte x souřadnici: "))
