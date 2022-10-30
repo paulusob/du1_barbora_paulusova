@@ -1,11 +1,14 @@
-from turtle import forward, exitonclick, right, left, speed
-
+from turtle import forward, exitonclick, right, left, speed, setx, sety, setpos, circle
+print("Vítejte ve hře piškvorky")
+print("Hráč 1 má symbol křížku, hráč 2 má symbol kolečka, Na vyzvání zadejte nejdříve souřadnici x, posléze souřadnici y vašeho tahu")
+print("Je na tahu hráč 1")
+x=input("Zadejte x souřadnici: ")
+y=input("Zadejte y souřadnici: ")
 #vykresleni ctvercove site 
 a=3
 b=3
 strana=100
-
-speed(0)
+speed(4)
 for y in range(b):
 	# Nakreslí řádek
 	for x in range(a):
@@ -19,5 +22,13 @@ for y in range(b):
 	right(90)
 	forward(strana)
 	right(90)
+setx(x)
+sety(y)
+forward (50)
+circle(50)
+left(180)
+forward(50)
+left(180)
 exitonclick()
+
 
