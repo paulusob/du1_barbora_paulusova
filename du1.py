@@ -64,8 +64,20 @@ home()
 pendown()
 for l in range (4):
     print("Je na tahu hráč 1")
-    x=float(input("Zadejte x souřadnici: "))
+    x=float(input("Zadejte x souřadnici (1-3): "))
+    if x==1:
+        x=0
+    elif x==2:
+        x=100
+    else:
+        x=200
     y=float(input("Zadejte y souřadnici: "))
+    if y==1:
+        y=0
+    elif y==2:
+        y=100
+    else:
+        y=200
     setx(x)
     sety(y)
     forward (50)
@@ -75,7 +87,19 @@ for l in range (4):
     left(180)
     print("Je na tahu hráč 2")
     x=float(input("Zadejte x souřadnici: "))
+    if x==1:
+        x=0
+    elif x==2:
+        x=100
+    else:
+        x=200
     y=float(input("Zadejte y souřadnici: "))
+    if y==1:
+        y=0
+    elif y==2:
+        y=100
+    else:
+        y=200
     setx(x)
     sety(y)
     left(45)
@@ -89,7 +113,19 @@ for l in range (4):
     left(180)
 print("Je na tahu hráč 1")
 x=float(input("Zadejte x souřadnici: "))
+if x==1:
+        x=0
+    elif x==2:
+        x=100
+    else:
+        x=200
 y=float(input("Zadejte y souřadnici: "))
+if y==1:
+        y=0
+    elif y==2:
+        y=100
+    else:
+        y=200
 setx(x)
 sety(y)
 forward (50)
