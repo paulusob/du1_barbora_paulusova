@@ -2,8 +2,8 @@
 from turtle import forward, exitonclick, right, left, speed, setx, sety, setpos, circle, write, penup, pendown, home
 #spuštění hry, vysvětlení pravidel
 print("Vítejte ve hře piškvorky")
-print("Hráč 1 má symbol kolečka, hráč 2 má symbol křížku, Na vyzvání zadejte nejdříve souřadnici x, posléze souřadnici y vašeho tahu")
-#vykreslení čtvercové sítě, zatím o velikosti 3*3
+print("Hráč 1 má symbol kolečka, hráč 2 má symbol křížku \nNa vyzvání zadejte nejdříve souřadnici x, poté souřadnici y vašeho tahu")
+#vykreslení čtvercové sítě, zatím o velikosti 3*3 
 a=3
 b=3
 strana=100
@@ -65,7 +65,7 @@ home()
 pendown()
 #začátek hry 
 #v hracím poli je dohromady 9 políček - hráč 1 má tedy 5 tahů, hráč 2 má 4 tahy, poslední tah prvního hráče je uveden zvlášť
-for l in range (4): #4 tahy jsou pro oba hráče společné 
+for l in range (4): #4 tahy jsou pro oba hráče společné - 4* se tedy opakují následující kroky 
     print("Je na tahu hráč 1")
     x=float(input("Zadejte x souřadnici v intervalu (1-3): ")) #hráč zadá souřadnice, na které se vykreslí znak
     while x>3 or x<1: #podmínka, že x (resp. y) musí být v inervalu (1,3) podle nákresu hracího pole
@@ -97,7 +97,7 @@ for l in range (4): #4 tahy jsou pro oba hráče společné
     left(180) 
     forward(50)
     left(180)
-    #konec tahu prvního hráče, je na řadě hráč 2, proces je stejný jako u hráče 1
+    #konec tahu prvního hráče, je na řadě hráč 2, proces je stejný jako u hráče 1, s výjimkou vykreslení křížku místo kolečka
     print("Je na tahu hráč 2")
     x=float(input("Zadejte x souřadnici (1-3): "))
     while x>3 or x<1:
@@ -131,7 +131,7 @@ for l in range (4): #4 tahy jsou pro oba hráče společné
     right(135)
     forward(100)
     left(180)
-#poslední tah prvního hráče
+#poslední tah prvního hráče, taktéž stejný proces 
 print("Je na tahu hráč 1")
 x=float(input("Zadejte x souřadnici (1-3): "))
 while x>3 or x<1:
