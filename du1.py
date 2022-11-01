@@ -1,5 +1,5 @@
 #nejdříve je potřeba naimportovat příkazy z knihovny turtle
-from turtle import forward, exitonclick, right, left, speed, setx, sety, setpos, circle, write, penup, pendown, home
+from turtle import forward, exitonclick, right, left, speed, setx, sety, setpos, circle, write, penup, pendown, home, setworldcoordinates
 
 
 #spuštění hry, vysvětlení pravidel
@@ -8,11 +8,19 @@ print("Hráč 1 má symbol kolečka, hráč 2 má symbol křížku \nNa vyzván�
 
 
 #nastavení velikosti hracího pole 
-a=int(input("Zadejte počet sloupců hracího pole: ")) 
-b=int(input("Zadejte počet řádků hracího pole: "))
+a=float(input("Zadejte počet sloupců hracího pole: ")) 
+b=float(input("Zadejte počet řádků hracího pole: "))
 
 
-strana=100
+strana=1000/max(a,b)
+
+
+a=int(a)
+b=int(b)
+
+setworldcoordinates(-100,-100,1100,1100)
+
+
 speed(0) 
 for k in range(b):
     for j in range(a):
@@ -29,29 +37,30 @@ for k in range(b):
 
 #popisky hracího pole - osa x,y a interval hracího pole
 penup()
-setx(10 + a*100)
+setx(10+ a*strana)
 sety(-5)
 pendown()
 write("x", move=False, align='left', font=('Arial', 8, 'normal'))
 penup()
 setx(0)
-sety(10 + b*100)
+sety(10 + b*strana)
 pendown()
 write("y", move=False, align='left', font=('Arial', 8, 'normal'))
 
 for p in range(1, a+1):
     penup()
-    setx(45 + 100*(p-1))
-    sety(-20)
+    setx(strana/2 + strana*(p-1))
+    sety(-30)
     pendown()
     write(str(p), move=False, align='left', font=('Arial', 8, 'normal'))
 
 for q in range(1, b+1):
     penup()
-    setx(-20)
-    sety(45 + 100*(q-1))
+    setx(-30)
+    sety(strana/2 + strana*(q-1))
     pendown()
     write(str(q), move=False, align='left', font=('Arial', 8, 'normal'))
+penup()
 home()
 pendown()
 
@@ -69,24 +78,24 @@ for l in range (m): #4 tahy jsou pro oba hráče společné - 4* se tedy opakuj�
         print("x musí být v intervalu hracího pole")
         v=float(input("Zadejte znovu x souřadnici v intervalu hracího pole: "))
 
-    x=(v-1)*100 #převedení relativních souřadnic hracího pole na absolutní souřadnice
+    x=(v-1)*strana #převedení relativních souřadnic hracího pole na absolutní souřadnice
  
     s=float(input("Zadejte y souřadnici hracího pole: "))
     while s>b or s<1:
         print("y musí být v intervalu hracího pole")
         s=float(input("Zadejte znovu y souřadnici v intervalu hracího pole: "))
     
-    y=(s-1)*100 #převedení relativních souřadnic hracího pole na absolutní souřadnice
+    y=(s-1)*strana #převedení relativních souřadnic hracího pole na absolutní souřadnice
 
     #nastavení souřadnic, na kterých se bude kreslit symbol
     setx(x) 
     sety(y)  
 
     #vykreslení kruhu
-    forward (50) 
-    circle(50) 
+    forward (strana/2) 
+    circle(strana/2) 
     left(180) 
-    forward(50)
+    forward(strana/2)
     left(180)
     #konec tahu prvního hráče
     
