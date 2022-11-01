@@ -7,9 +7,11 @@ print("Vítejte ve hře piškvorky")
 print("Hráč 1 má symbol kolečka, hráč 2 má symbol křížku \nNa vyzvání zadejte nejdříve souřadnici x, poté souřadnici y vašeho tahu")
 
 
-#vykreslení čtvercové sítě, zatím o velikosti 3*3 
-a=3
-b=3
+#nastavení velikosti hracího pole 
+a=int(input("Zadejte počet sloupců hracího pole: ")) 
+b=int(input("Zadejte počet řádků hracího pole: "))
+
+
 strana=100
 speed(0) 
 for k in range(b):
@@ -73,10 +75,13 @@ pendown()
 
 #začátek hry 
 #v hracím poli je dohromady 9 políček - hráč 1 má tedy 5 tahů, hráč 2 má 4 tahy, poslední tah prvního hráče je uveden zvlášť
-for l in range (4): #4 tahy jsou pro oba hráče společné - 4* se tedy opakují následující kroky 
+
+m=int((a*b)/2) #výpočet počtu tahů 
+
+for l in range (m): #4 tahy jsou pro oba hráče společné - 4* se tedy opakují následující kroky 
     print("Je na tahu hráč 1")
     v=float(input("Zadejte x souřadnici v intervalu (1-3): ")) #hráč zadá souřadnice, na které se vykreslí znak
-    while v>3 or v<1: #podmínka, že x (resp. y) musí být v inervalu (1,3) podle nákresu hracího pole
+    while v>a or v<1: #podmínka, že x (resp. y) musí být v inervalu (1,3) podle nákresu hracího pole
         # - pokud není splněna, uživatel je vyzván k zadání jiného čísla v intervalu (1,3)
         print("x musí být v intervalu (1,3)")
         v=float(input("Zadejte znovu x souřadnici v intervalu (1-3): "))
@@ -84,7 +89,7 @@ for l in range (4): #4 tahy jsou pro oba hráče společné - 4* se tedy opakuj�
     x=(v-1)*100 #převedení relativních souřadnic hracího pole na absolutní souřadnice
  
     s=float(input("Zadejte y souřadnici (1-3): "))
-    while s>3 or s<1:
+    while s>b or s<1:
         print("y musí být v intervalu (1,3)")
         s=float(input("Zadejte znovu y souřadnici v intervalu (1-3): "))
     
@@ -106,14 +111,14 @@ for l in range (4): #4 tahy jsou pro oba hráče společné - 4* se tedy opakuj�
     # je na řadě hráč 2, proces je stejný jako u hráče 1, s výjimkou vykreslení křížku místo kolečka
     print("Je na tahu hráč 2")
     v=float(input("Zadejte x souřadnici (1-3): "))
-    while v>3 or v<1:
+    while v>a or v<1:
         print("x musí být v intervalu (1,3)")
         v=float(input("Zadejte znovu x souřadnici v intervalu (1-3): "))
     
     x=(v-1)*100
 
     s=float(input("Zadejte y souřadnici (1-3): "))
-    while s>3 or s<1:
+    while s>b or s<1:
         print("y musí být v intervalu (1,3)")
         s=float(input("Zadejte znovu y souřadnici v intervalu (1-3): "))
     
@@ -133,30 +138,31 @@ for l in range (4): #4 tahy jsou pro oba hráče společné - 4* se tedy opakuj�
     forward(100)
     left(180)
 
-
+n=int((a*b)%2) #případný poslední tah, pokud je lichý počet polí
+for _ in range (n):
 #poslední tah prvního hráče, taktéž stejný proces 
-print("Je na tahu hráč 1")
-v=float(input("Zadejte x souřadnici (1-3): "))
-while v>3 or v<1:
-    print("x musí být v intervalu (1,3)")
-    v=float(input("Zadejte znovu x souřadnici v intervalu (1-3): "))
+    print("Je na tahu hráč 1")
+    v=float(input("Zadejte x souřadnici (1-3): "))
+    while v>a or v<1:
+        print("x musí být v intervalu (1,3)")
+        v=float(input("Zadejte znovu x souřadnici v intervalu (1-3): "))
 
-x=(v-1)*100
+    x=(v-1)*100
 
-s=float(input("Zadejte y souřadnici (1-3): "))
-while s>3 or s<1:
-    print("y musí být v intervalu (1,3)")
-    s=float(input("Zadejte znovu y souřadnici v intervalu (1-3): "))
+    s=float(input("Zadejte y souřadnici (1-3): "))
+    while s>b or s<1:
+        print("y musí být v intervalu (1,3)")
+        s=float(input("Zadejte znovu y souřadnici v intervalu (1-3): "))
 
-y=(s-1)*100
+    y=(s-1)*100
 
-setx(x)
-sety(y)
+    setx(x)
+    sety(y)
 
-forward (50)
-circle(50)
-left(180)
-forward(50)
-left(180)
+    forward (50)
+    circle(50)
+    left(180)
+    forward(50)
+    left(180)
 print("Konec hry")
 exitonclick()
